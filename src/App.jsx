@@ -1,6 +1,7 @@
 import React from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import SignIn from './components/SignIn/SignIn'
+import NavBar from "./components/NavBar"
+import Home from "./components/Home/Home"
 import ErrorPage from "./pages/ErrorPage"
 
 function App() {
@@ -8,10 +9,11 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <NavBar />
         <Routes>
-          <Route path="/signin" component={SignIn} />
+          <Route path="/" element={<Home />}/>
 
-          <Route path="*" component={ErrorPage} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>
     </div>

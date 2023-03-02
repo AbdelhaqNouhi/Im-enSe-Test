@@ -1,7 +1,7 @@
 import React from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import NavBar from "./components/NavBar"
-import Home from "./components/Home/Home"
+import Home from "./pages/Home/Home"
 import ErrorPage from "./pages/ErrorPage"
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home />}/>
+          <Route path="/Dashboard" element={<Home />}/>
 
           <Route path="*" element={<ErrorPage />} />
         </Routes>

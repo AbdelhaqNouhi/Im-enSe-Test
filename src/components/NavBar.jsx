@@ -53,11 +53,10 @@ function NavBar() {
                                 <input className='bg-gray-100 rounded px-8 py-1.5 w-[392px] text-[#B6B6B6]' type="search" placeholder='Quick Search ... ' />
                             </div>
                         </div>
-                </div>
+                    </div>
                     <div className='Mune flex gap-10 text-[#B6B6B6]'>
                         <NavLink 
                             to="/Dashboard" 
-                            // className="flex items-center">
                             className={({ isActive }) => (isActive ? 'text-blue-500 flex items-center' : 'flex items-center')}>
                             Dashboard
                         </NavLink>

@@ -3,7 +3,6 @@ import VCA from '../../assets//icons/VCA.png'
 
 const FirstPart = () => {
 
-    const [image, setImage] = useState('')
     const [selectedFile, setSelectedFile] = useState('');
 
     // function is called when a file is dropped

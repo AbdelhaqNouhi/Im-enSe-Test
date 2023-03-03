@@ -26,7 +26,7 @@ const FirstPart = () => {
         setSelectedFile(file);
         console.log(selectedFile.name);
     };
-    
+
     useEffect(() => {
         if (selectedFile) {
             console.log(selectedFile);
@@ -156,48 +156,104 @@ const FirstPart = () => {
                         </div>
                     </div>
                 </div>
-                <div className='bg-white flex items-center justify-center rounded text-sm w-[529px] h-[311px]'>
-                    <div className='flex justify-center w-[294px] h-[202px] border-2 border-dashed border-[#DCDCDC]'>
-                        <div className='m-auto'>
-
-                            <label className='flex justify-center' for="uploadFile">
-                                <svg width="50" height="36" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M40.5882 14.7059C40.8824 13.8235 41.1765 12.9412 41.1765 11.7647C41.1765 5.29412 35.8824 0 29.4118 0C25 0 20.8824 2.64706 19.1176 6.47059C18.2353 6.17647 17.0588 5.88235 16.1765 5.88235C12.0588 5.88235 8.82353 9.11765 8.82353 13.2353C8.82353 13.8235 8.82353 14.4118 9.11765 14.7059C3.82353 15.5882 0 19.7059 0 25C0 30.5882 4.70588 35.2941 10.2941 35.2941H20.5882V26.4706H11.7647L25 13.2353L38.2353 26.4706H29.4118V35.2941H39.7059C45.2941 35.2941 50 30.5882 50 25C50 19.7059 45.8824 15.2941 40.5882 14.7059Z" fill="url(#paint0_linear_401_508)" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_401_508" x1="25" y1="0" x2="41.1765" y2="45.5882" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#E7E7E7" />
-                                            <stop offset="1" stop-color="#848484" stop-opacity="0" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </label>
-                            <div className='font-normal text-sm w-[200px] h-[34px] text-center text-[#B5B5B5] leading-5'>
-                                <p>Drag and drop your image here Or <label className='text-blue-500' for="uploadFile">Upload Image</label></p>
-                                <input  type="file" id="uploadFile" onChange={(e) => setImage(e.target.files[0])} />
+                {/* ---------------------- */}
+                <div className='bg-white flex flex-col gap-6 py-3 rounded text-sm w-[529px] h-[311px]'>
+                    <div className='flex flex-col gap-5 justify-center px-12'>
+                        <p className=''>image</p>
+                        <div className='flex justify-center w-[294px] h-[202px] border-2 border-dashed border-[#DCDCDC]'
+                            onDrop={handleDrop}
+                            onDragOver={handleDragOver}
+                        >
+                            <div className='m-auto'>
+                                <label className='flex justify-center' htmlFor="hidden-file-input">
+                                    {!selectedFile ? (
+                                        <svg width="50" height="36" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M40.5882 14.7059C40.8824 13.8235 41.1765 12.9412 41.1765 11.7647C41.1765 5.29412 35.8824 0 29.4118 0C25 0 20.8824 2.64706 19.1176 6.47059C18.2353 6.17647 17.0588 5.88235 16.1765 5.88235C12.0588 5.88235 8.82353 9.11765 8.82353 13.2353C8.82353 13.8235 8.82353 14.4118 9.11765 14.7059C3.82353 15.5882 0 19.7059 0 25C0 30.5882 4.70588 35.2941 10.2941 35.2941H20.5882V26.4706H11.7647L25 13.2353L38.2353 26.4706H29.4118V35.2941H39.7059C45.2941 35.2941 50 30.5882 50 25C50 19.7059 45.8824 15.2941 40.5882 14.7059Z" fill="url(#paint0_linear_401_508)" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_401_508" x1="25" y1="0" x2="41.1765" y2="45.5882" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#E7E7E7" />
+                                                    <stop offset="1" stop-color="#848484" stop-opacity="0" />
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+                                    ) : (
+                                        <p>
+                                            Selected file : {selectedFile.name}({selectedFile.type})
+                                        </p>
+                                    )}
+                                </label>
+                                {!selectedFile ? (
+                                    <div className='font-normal text-sm w-[200px] h-[34px] text-center text-[#B5B5B5] leading-5'>
+                                        <p>Drag and drop your image here Or <label className='text-blue-500' htmlFor="hidden-file-input">Upload Image</label></p>
+                                        <input
+                                            type="file"
+                                            id="hidden-file-input"
+                                            onChange={handleFileSelect}
+                                            style={{ display: 'none' }}
+                                        />
+                                    </div>
+                                ) : null}
                             </div>
                         </div>
                     </div>
+                    <p className='text-sx text-[#B4B4B4]'>*Only JPG, PNG files are allowed. Image must be less than 2 MB</p>
                 </div>
-                <div className='bg-white flex flex-col gap-6 px-4 py-4 justify-center rounded text-sm w-[300px]'>
-                    <div
-                        className="drop-zone"
-                        onDrop={handleDrop}
-                        onDragOver={handleDragOver}
-                    >
-                        <input
-                            type="file"
-                            id="hidden-file-input"
-                            onChange={handleFileSelect}
-                            style={{ display: 'none' }}
-                        />
-                        <label htmlFor="hidden-file-input">
-                            Drag and drop an image here, or click to select a file.
-                        </label>
-                        {selectedFile && (
-                            <p>
-                                Selected file: {selectedFile.name} ({selectedFile.type})
-                            </p>
-                        )}
+                <div className='bg-white flex flex-col gap-2 py-2 px-4 rounded text-sm w-[229px]'>
+                    <div className='flex flex-col gap-2 justify-center'>
+                        <p className=''>image</p>
+                        <div className='flex justify-center w-[200px] h-[97px] border-2 border-dashed border-[#DCDCDC]'
+                            onDrop={handleDrop}
+                            onDragOver={handleDragOver}
+                        >
+                            <div className='m-auto'>
+                                <label className='flex justify-center' htmlFor="hidden-file-input">
+                                    {!selectedFile ? (
+                                        <svg width="50" height="36" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M40.5882 14.7059C40.8824 13.8235 41.1765 12.9412 41.1765 11.7647C41.1765 5.29412 35.8824 0 29.4118 0C25 0 20.8824 2.64706 19.1176 6.47059C18.2353 6.17647 17.0588 5.88235 16.1765 5.88235C12.0588 5.88235 8.82353 9.11765 8.82353 13.2353C8.82353 13.8235 8.82353 14.4118 9.11765 14.7059C3.82353 15.5882 0 19.7059 0 25C0 30.5882 4.70588 35.2941 10.2941 35.2941H20.5882V26.4706H11.7647L25 13.2353L38.2353 26.4706H29.4118V35.2941H39.7059C45.2941 35.2941 50 30.5882 50 25C50 19.7059 45.8824 15.2941 40.5882 14.7059Z" fill="url(#paint0_linear_401_508)" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_401_508" x1="25" y1="0" x2="41.1765" y2="45.5882" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#E7E7E7" />
+                                                    <stop offset="1" stop-color="#848484" stop-opacity="0" />
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+                                    ) : (
+                                        <p>
+                                            Selected file : {selectedFile.name}({selectedFile.type})
+                                        </p>
+                                    )}
+                                </label>
+                                {!selectedFile ? (
+                                    <div className='font-normal text-xs w-[200px] h-[34px] text-center text-[#B5B5B5] leading-5'>
+                                        <p>Drag and drop your image here Or <label className='text-blue-500' htmlFor="hidden-file-input">Upload Image</label></p>
+                                        <input
+                                            type="file"
+                                            id="hidden-file-input"
+                                            onChange={handleFileSelect}
+                                            style={{ display: 'none' }}
+                                        />
+                                    </div>
+                                ) : null}
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div className='flex flex-col gap-2'>
+                            <div className='flex justify-between bg-[#47CA5B] px-2 py-1 rounded items-center text-white font-semibold'>
+                                <div>
+                                    <p className='text-xs'>Completed</p>
+                                    <p>workingAtHeight.pdf</p>
+                                </div>
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="11" cy="11" r="11" fill="white" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0005 12.3149L13.5898 14.8099C13.8496 15.0621 14.0186 15.0647 14.2831 14.8099L14.8026 14.3092C15.0571 14.064 15.0744 13.9031 14.8026 13.6412L12.0613 11.0001L14.8028 8.35901C15.0596 8.11078 15.0646 7.94326 14.8028 7.6908L14.2833 7.19034C14.0138 6.93059 13.8473 6.94259 13.5901 7.19034L11.0005 9.68532L8.4112 7.19058C8.15394 6.94282 7.98744 6.93082 7.71793 7.19058L7.19842 7.69103C6.93641 7.9435 6.94116 8.11102 7.19842 8.35925L9.93973 11.0001L7.19842 13.6412C6.92666 13.9031 6.94116 14.064 7.19842 14.3092L7.71768 14.8099C7.97994 15.0647 8.14894 15.0621 8.41095 14.8099L11.0005 12.3149Z" fill="#B5B5B5" />
+                                </svg>
+                            </div>
+                            <div className='text-[#B4B4B4] text-xs'>
+                                <p>*Only Video, PDF and SlideShow
+                                    files are allowed.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

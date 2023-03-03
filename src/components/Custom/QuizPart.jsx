@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 const QuizPart = () => {
 
     const [selectedFile, setSelectedFile] = useState('');
+    const [isChecked, setIsChecked] = useState(false);
+    console.log(isChecked);
 
     // function is called when a file is dropped
     const handleDrop = (e) => {
@@ -32,6 +34,11 @@ const QuizPart = () => {
     }, [selectedFile])
 
 
+    const handleCheckboxChange = (event) => {
+        setIsChecked(event.target.checked);
+    };
+
+
     return (
         <div className='px-44 pb-24'>
             <div className='bg-white flex flex-col p-6 gap-4 rounded text-sm w-full h-full'>
@@ -51,8 +58,36 @@ const QuizPart = () => {
                         <div className='px-2 py-4 w-full rounded border border-[#DCDCDC] bg-white'>
                             <p>Dust-filter respirators may be used for continuous protection while silica sand is used as the blasting abrasive.</p>
                         </div>
-                        <input className='px-2 py-2 w-full rounded border border-[#DCDCDC] bg-white'  type="text" />
-                        <input className='px-2 py-2 w-full rounded border border-[#DCDCDC] bg-white' type="text" />
+                        <div className='px-2 py-2 w-full flex justify-between items-center  rounded border border-[#DCDCDC] bg-white' type="text">
+                            <div className='flex gap-4'>
+                                <input
+                                    className=' bg-slate-900 border border-[#DCDCDC] rounded w-4 h-4'
+                                    type="checkbox"
+                                    checked={isChecked}
+                                    onChange={handleCheckboxChange}
+                                />
+                                <div className='flex items-center'
+                                    onDrop={handleDrop}
+                                    onDragOver={handleDragOver}>
+                                    <label htmlFor="hidden-file-input">
+                                        <svg width="24" height="16" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M40.5882 14.7059C40.8824 13.8235 41.1765 12.9412 41.1765 11.7647C41.1765 5.29412 35.8824 0 29.4118 0C25 0 20.8824 2.64706 19.1176 6.47059C18.2353 6.17647 17.0588 5.88235 16.1765 5.88235C12.0588 5.88235 8.82353 9.11765 8.82353 13.2353C8.82353 13.8235 8.82353 14.4118 9.11765 14.7059C3.82353 15.5882 0 19.7059 0 25C0 30.5882 4.70588 35.2941 10.2941 35.2941H20.5882V26.4706H11.7647L25 13.2353L38.2353 26.4706H29.4118V35.2941H39.7059C45.2941 35.2941 50 30.5882 50 25C50 19.7059 45.8824 15.2941 40.5882 14.7059Z" fill="url(#paint0_linear_401_508)" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_401_508" x1="25" y1="0" x2="41.1765" y2="45.5882" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#E7E7E7" />
+                                                    <stop offset="1" stop-color="#848484" stop-opacity="0" />
+                                                </linearGradient>
+                                            </defs>                                        </svg>
+                                    </label>
+                                    <input
+                                        type="file"
+                                        id="hidden-file-input"
+                                        onChange={handleFileSelect}
+                                        style={{ display: 'none' }}
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className='flex flex-col gap-2'>
                         <div className='flex justify-between items-center'>
@@ -100,6 +135,7 @@ const QuizPart = () => {
                 </div>
                 <div className='bg-[#E1EFFF] text-[#2C8EFF] font-bold text-center py-2 rounded'>
                     <button className=''>Add Question +</button>
+                    
                 </div>
             </div>
         </div>

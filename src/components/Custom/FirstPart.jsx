@@ -1,7 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import VCA from '../../assets//icons/VCA.png'
 
 const FirstPart = () => {
+
+    const [image, setImage] = useState('')
+    const [selectedFile, setSelectedFile] = useState('');
+
+    // function is called when a file is dropped
+    const handleDrop = (e) => {
+        e.preventDefault();
+        const file = e.dataTransfer.files[0];
+        setSelectedFile(file);
+        console.log(selectedFile.name);
+    };
+
+    // function is called when the user is dragging a file over the drop zone
+    const handleDragOver = (e) => {
+        e.preventDefault();
+        console.log(selectedFile.name);
+    };
+
+    // unction is called when the user selects a file using the file input element
+    const handleFileSelect = (e) => {
+        const file = e.target.files[0];
+        setSelectedFile(file);
+        console.log(selectedFile.name);
+    };
+    
+    useEffect(() => {
+        if (selectedFile) {
+            console.log(selectedFile);
+        }
+    }, [selectedFile])
+
     return (
         <div className='bg-gray-100 h-screen px-44 '>
             <div className='flex justify-between py-10 text-[#7C7C7C] items-center'>
@@ -126,9 +157,10 @@ const FirstPart = () => {
                     </div>
                 </div>
                 <div className='bg-white flex items-center justify-center rounded text-sm w-[529px] h-[311px]'>
-                    <div className='flex justify-center w-[294px] h-[202px] border-2 border-dashed border-red-500'>
+                    <div className='flex justify-center w-[294px] h-[202px] border-2 border-dashed border-[#DCDCDC]'>
                         <div className='m-auto'>
-                            <div className='flex justify-center'>
+
+                            <label className='flex justify-center' for="uploadFile">
                                 <svg width="50" height="36" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M40.5882 14.7059C40.8824 13.8235 41.1765 12.9412 41.1765 11.7647C41.1765 5.29412 35.8824 0 29.4118 0C25 0 20.8824 2.64706 19.1176 6.47059C18.2353 6.17647 17.0588 5.88235 16.1765 5.88235C12.0588 5.88235 8.82353 9.11765 8.82353 13.2353C8.82353 13.8235 8.82353 14.4118 9.11765 14.7059C3.82353 15.5882 0 19.7059 0 25C0 30.5882 4.70588 35.2941 10.2941 35.2941H20.5882V26.4706H11.7647L25 13.2353L38.2353 26.4706H29.4118V35.2941H39.7059C45.2941 35.2941 50 30.5882 50 25C50 19.7059 45.8824 15.2941 40.5882 14.7059Z" fill="url(#paint0_linear_401_508)" />
                                     <defs>
@@ -138,16 +170,34 @@ const FirstPart = () => {
                                         </linearGradient>
                                     </defs>
                                 </svg>
-                            </div>
+                            </label>
                             <div className='font-normal text-sm w-[200px] h-[34px] text-center text-[#B5B5B5] leading-5'>
-                                <p>Drag and drop your image here Or browse files</p>
-                                <input type="file" />
+                                <p>Drag and drop your image here Or <label className='text-blue-500' for="uploadFile">Upload Image</label></p>
+                                <input  type="file" id="uploadFile" onChange={(e) => setImage(e.target.files[0])} />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className='bg-white flex flex-col gap-6 px-4 py-4 justify-center rounded text-sm w-[300px]'>
-                    <div className=''>
+                    <div
+                        className="drop-zone"
+                        onDrop={handleDrop}
+                        onDragOver={handleDragOver}
+                    >
+                        <input
+                            type="file"
+                            id="hidden-file-input"
+                            onChange={handleFileSelect}
+                            style={{ display: 'none' }}
+                        />
+                        <label htmlFor="hidden-file-input">
+                            Drag and drop an image here, or click to select a file.
+                        </label>
+                        {selectedFile && (
+                            <p>
+                                Selected file: {selectedFile.name} ({selectedFile.type})
+                            </p>
+                        )}
                     </div>
                 </div>
             </div>

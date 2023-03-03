@@ -34,7 +34,7 @@ const FirstPart = () => {
     }, [selectedFile])
 
     return (
-        <div className='bg-gray-100 h-screen px-44 '>
+        <div className='py-4 px-44'>
             <div className='flex justify-between py-10 text-[#7C7C7C] items-center'>
                 <p>Edit Training “Working At Height”</p>
                 <div className='flex gap-8'>

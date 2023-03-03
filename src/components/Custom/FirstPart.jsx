@@ -198,7 +198,7 @@ const FirstPart = () => {
                     </div>
                     <p className='text-sx text-[#B4B4B4]'>*Only JPG, PNG files are allowed. Image must be less than 2 MB</p>
                 </div>
-                <div className='bg-white flex flex-col gap-2 py-2 px-4 rounded text-sm w-[229px]'>
+                <div className='bg-white flex flex-col gap-1.5 py-2 px-4 rounded text-sm w-[229px]'>
                     <div className='flex flex-col gap-2 justify-center'>
                         <p className=''>image</p>
                         <div className='flex justify-center w-[200px] h-[97px] border-2 border-dashed border-[#DCDCDC]'
@@ -238,7 +238,7 @@ const FirstPart = () => {
                         </div>
                     </div>
                     <div>
-                        <div className='flex flex-col gap-2'>
+                        <div className='flex flex-col gap-1.5'>
                             <div className='flex justify-between bg-[#47CA5B] px-2 py-1 rounded items-center text-white font-semibold'>
                                 <div>
                                     <p className='text-xs'>Completed</p>
@@ -252,6 +252,17 @@ const FirstPart = () => {
                             <div className='text-[#B4B4B4] text-xs'>
                                 <p>*Only Video, PDF and SlideShow
                                     files are allowed.</p>
+                            </div>
+                            <div className="flex items-center justify-center">
+                                <hr className="border-1 w-1/3 mr-4" />
+                                    <span className="text-gray-500 text-xs font-medium uppercase tracking-wide">
+                                        OR
+                                    </span>
+                                <hr className="border-1 w-1/3 ml-4" />
+                            </div>   
+                            <div>
+                                <p className='text-xs'>Media URL</p>
+                                <input className='text-xs p-1.5 my-1 rounded border border-[#DCDCDC] w-full' type="text" placeholder='https://youtu.be/1g4hoZx8-o4'/>
                             </div>
                         </div>
                     </div>

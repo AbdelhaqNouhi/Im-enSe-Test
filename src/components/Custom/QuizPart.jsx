@@ -7,7 +7,7 @@ const QuizPart = () => {
     const [isChecked_2, setIsChecked_2] = useState(false);
 
     const [newQuestion, setNewQuestion] = useState([]);
-    
+
     // function is called when a file is dropped
     const handleDrop = (e) => {
         e.preventDefault();
@@ -179,7 +179,7 @@ const QuizPart = () => {
         }
     }
     return (
-        <div className='px-44 pb-24'>
+        <div className='px-44'>
             <div className='bg-white flex flex-col p-6 gap-4 rounded text-sm w-full h-full'>
                 <div className='flex flex-col gap-3'>
                     <h1 className='font-normal text-base text-[#616161]'>Training quiz</h1>

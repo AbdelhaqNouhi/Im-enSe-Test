@@ -3,13 +3,13 @@ import VCA from '../../assets//icons/VCA.png'
 
 function Upload_L_Img() {
 
-    const [selectedFile, setSelectedFile] = useState('');
+    const [selectedImg, setSelectedImg] = useState('');
 
     // function is called when a file is dropped
     const handleDrop = (e) => {
         e.preventDefault();
         const file = e.dataTransfer.files[0];
-        setSelectedFile(file);
+        setSelectedImg(file);
     };
 
     // function is called when the user is dragging a file over the drop zone
@@ -18,10 +18,9 @@ function Upload_L_Img() {
     };
 
     // unction is called when the user selects a file using the file input element
-    const handleFileSelect = (e) => {
+    const handleImgSelect = (e) => {
         const file = e.target.files[0];
-        setSelectedFile(file);
-        console.log(selectedFile);
+        setSelectedImg(file);
     };
 
 
@@ -32,7 +31,7 @@ function Upload_L_Img() {
         >
             <div className='m-auto'>
                 <label className='flex justify-center' htmlFor="hidden-file-input">
-                    {!selectedFile ? (
+                    {!selectedImg ? (
                         <svg width="50" height="36" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M40.5882 14.7059C40.8824 13.8235 41.1765 12.9412 41.1765 11.7647C41.1765 5.29412 35.8824 0 29.4118 0C25 0 20.8824 2.64706 19.1176 6.47059C18.2353 6.17647 17.0588 5.88235 16.1765 5.88235C12.0588 5.88235 8.82353 9.11765 8.82353 13.2353C8.82353 13.8235 8.82353 14.4118 9.11765 14.7059C3.82353 15.5882 0 19.7059 0 25C0 30.5882 4.70588 35.2941 10.2941 35.2941H20.5882V26.4706H11.7647L25 13.2353L38.2353 26.4706H29.4118V35.2941H39.7059C45.2941 35.2941 50 30.5882 50 25C50 19.7059 45.8824 15.2941 40.5882 14.7059Z" fill="url(#paint0_linear_401_508)" />
                             <defs>
@@ -43,18 +42,18 @@ function Upload_L_Img() {
                             </defs>
                         </svg>
                     ) : (
-                        <p>
-                            Selected file : {selectedFile.name}({selectedFile.type})
+                        <p className='font-normal text-sm w-[200px] h-[34px] text-center text-[#9d9d9d]'>
+                            Selected file : {selectedImg.name}({selectedImg.type})
                         </p>
                     )}
                 </label>
-                {!selectedFile ? (
+                {!selectedImg ? (
                     <div className='font-normal text-sm w-[200px] h-[34px] text-center text-[#B5B5B5] leading-5'>
                         <p>Drag and drop your image here Or <label className='text-blue-500' htmlFor="hidden-file-input">Upload Image</label></p>
                         <input
                             type="file"
                             id="hidden-file-input"
-                            onChange={handleFileSelect}
+                            onChange={handleImgSelect}
                             style={{ display: 'none' }}
                         />
                     </div>
@@ -105,8 +104,8 @@ function Upload_S_Img() {
                             </defs>
                         </svg>
                     ) : (
-                        <p>
-                                Selected file : {selectedFile.name}({selectedFile.type})
+                        <p className='font-normal text-sm w-[200px] h-[34px] text-center text-[#9d9d9d]'>
+                            Selected file : {selectedFile.name}({selectedFile.type})
                         </p>
                     )}
                 </label>

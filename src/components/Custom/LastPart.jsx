@@ -27,7 +27,69 @@ function Counter({text}) {
     );
 }
 
+function ToggleCheck({ onChange, checked }) {
+
+    const sliderStyles = {
+        position: "absolute",
+        cursor: "pointer",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: "#ccc",
+        transition: ".4s",
+        borderRadius: '34px',
+    };
+
+    const sliderBeforeStyles = {
+        position: "absolute",
+        content: "",
+        height: "26px",
+        width: "26px",
+        top: "-3px",
+        bottom: "6px",
+        backgroundColor: "#47CA5B",
+        transition: ".4s",
+        borderRadius: "50%",
+    };
+
+    const checkedSliderStyles = {
+        backgroundColor: "#DAFFDF",
+    };
+
+    const checkedSliderBeforeStyles = {
+        transform: "translateX(20px)",
+    };
+
+    return (
+        <div className='flex justify-center'>
+            <label className="switch relative inline-block w-11 switch">
+                <input
+                    className="opacity-0 "
+                    type="checkbox"
+                    checked={checked}
+                    onChange={onChange}
+                />
+                <span style={Object.assign({}, sliderStyles, checked && checkedSliderStyles)}>
+                    <span style={Object.assign({}, sliderBeforeStyles, checked && checkedSliderBeforeStyles)} ></span>
+                </span>
+            </label>
+        </div>
+    );
+}
+
 const LastPart = () => {
+
+    const [isChecked, setIsChecked] = useState(false);
+    console.log(isChecked);
+
+    const handleCheckboxChange = (event) => {
+        if (isChecked === true) {
+            setIsChecked(false);
+        }
+        const check = event.target.checked;
+        setIsChecked(check);
+    };
 
     return (
         <div className='px-44 py-8 items-center justify-center w-full'>
@@ -99,7 +161,7 @@ const LastPart = () => {
                     </div>
                     <Counter text={'%'} />
                 </div>
-                <div className='bg-white flex flex-col gap-4 rounded p-2 w-[186px] h-[166px]'>
+                <div className=' bg-white flex flex-col gap-5 rounded p-2 w-[186px] h-[166px]'>
                     <div className='ml-auto'>
                         <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_401_266)">
@@ -127,7 +189,8 @@ const LastPart = () => {
                         </svg>
                         <h1>Webcam validation</h1>
                     </div>
-                    <Counter text={'%'} />
+                    {/* <Counter text={'%'} /> */}
+                    <ToggleCheck onChange={handleCheckboxChange} checked={isChecked} />
                 </div>
                 <div className='bg-white flex flex-col gap-4 rounded p-2 w-[186px] h-[166px]'>
                     <div className='ml-auto'>
@@ -177,7 +240,7 @@ const LastPart = () => {
                 </div>
             </div>
             <div>
-                <h1>hhhhhhhhhhhhhhh</h1>
+                <h1>scrole</h1>
             </div>
         </div>
     )

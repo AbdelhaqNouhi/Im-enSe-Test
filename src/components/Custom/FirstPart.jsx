@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import VCA from '../../assets//icons/VCA.png'
 
-const FirstPart = () => {
+function Upload_L_Img() {
 
     const [selectedFile, setSelectedFile] = useState('');
 
@@ -10,27 +10,146 @@ const FirstPart = () => {
         e.preventDefault();
         const file = e.dataTransfer.files[0];
         setSelectedFile(file);
-        console.log(selectedFile.name);
     };
 
     // function is called when the user is dragging a file over the drop zone
     const handleDragOver = (e) => {
         e.preventDefault();
-        console.log(selectedFile.name);
     };
 
     // unction is called when the user selects a file using the file input element
     const handleFileSelect = (e) => {
         const file = e.target.files[0];
         setSelectedFile(file);
-        console.log(selectedFile.name);
+        console.log(selectedFile);
     };
 
-    useEffect(() => {
-        if (selectedFile) {
-            console.log(selectedFile);
-        }
-    }, [selectedFile])
+
+    return (
+        <div className='flex justify-center w-[294px] h-[202px] border-2 border-dashed border-[#DCDCDC]'
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+        >
+            <div className='m-auto'>
+                <label className='flex justify-center' htmlFor="hidden-file-input">
+                    {!selectedFile ? (
+                        <svg width="50" height="36" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M40.5882 14.7059C40.8824 13.8235 41.1765 12.9412 41.1765 11.7647C41.1765 5.29412 35.8824 0 29.4118 0C25 0 20.8824 2.64706 19.1176 6.47059C18.2353 6.17647 17.0588 5.88235 16.1765 5.88235C12.0588 5.88235 8.82353 9.11765 8.82353 13.2353C8.82353 13.8235 8.82353 14.4118 9.11765 14.7059C3.82353 15.5882 0 19.7059 0 25C0 30.5882 4.70588 35.2941 10.2941 35.2941H20.5882V26.4706H11.7647L25 13.2353L38.2353 26.4706H29.4118V35.2941H39.7059C45.2941 35.2941 50 30.5882 50 25C50 19.7059 45.8824 15.2941 40.5882 14.7059Z" fill="url(#paint0_linear_401_508)" />
+                            <defs>
+                                <linearGradient id="paint0_linear_401_508" x1="25" y1="0" x2="41.1765" y2="45.5882" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#E7E7E7" />
+                                    <stop offset="1" stop-color="#848484" stop-opacity="0" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    ) : (
+                        <p>
+                            Selected file : {selectedFile.name}({selectedFile.type})
+                        </p>
+                    )}
+                </label>
+                {!selectedFile ? (
+                    <div className='font-normal text-sm w-[200px] h-[34px] text-center text-[#B5B5B5] leading-5'>
+                        <p>Drag and drop your image here Or <label className='text-blue-500' htmlFor="hidden-file-input">Upload Image</label></p>
+                        <input
+                            type="file"
+                            id="hidden-file-input"
+                            onChange={handleFileSelect}
+                            style={{ display: 'none' }}
+                        />
+                    </div>
+                ) : null}
+            </div>
+        </div>
+    );
+}
+
+function Upload_S_Img() {
+
+    const [selectedFile, setSelectedFile] = useState('');
+
+    // function is called when a file is dropped
+    const handleDrop = (e) => {
+        e.preventDefault();
+        const file = e.dataTransfer.files[0];
+        setSelectedFile(file);
+    };
+
+    // function is called when the user is dragging a file over the drop zone
+    const handleDragOver = (e) => {
+        e.preventDefault();
+    };
+
+    // unction is called when the user selects a file using the file input element
+    const handleFileSelect = (e) => {
+        const file = e.target.files[0];
+        setSelectedFile(file);
+    };
+
+
+    return (
+        <div className='flex justify-center w-[200px] h-[97px] border-2 border-dashed border-[#DCDCDC]'
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+        >
+            <div className='m-auto'>
+                <label className='flex justify-center' htmlFor="hidden-file-input">
+                    {!selectedFile ? (
+                        <svg width="50" height="36" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M40.5882 14.7059C40.8824 13.8235 41.1765 12.9412 41.1765 11.7647C41.1765 5.29412 35.8824 0 29.4118 0C25 0 20.8824 2.64706 19.1176 6.47059C18.2353 6.17647 17.0588 5.88235 16.1765 5.88235C12.0588 5.88235 8.82353 9.11765 8.82353 13.2353C8.82353 13.8235 8.82353 14.4118 9.11765 14.7059C3.82353 15.5882 0 19.7059 0 25C0 30.5882 4.70588 35.2941 10.2941 35.2941H20.5882V26.4706H11.7647L25 13.2353L38.2353 26.4706H29.4118V35.2941H39.7059C45.2941 35.2941 50 30.5882 50 25C50 19.7059 45.8824 15.2941 40.5882 14.7059Z" fill="url(#paint0_linear_401_508)" />
+                            <defs>
+                                <linearGradient id="paint0_linear_401_508" x1="25" y1="0" x2="41.1765" y2="45.5882" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#E7E7E7" />
+                                    <stop offset="1" stop-color="#848484" stop-opacity="0" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    ) : (
+                        <p>
+                                Selected file : {selectedFile.name}({selectedFile.type})
+                        </p>
+                    )}
+                </label>
+                {!selectedFile ? (
+                    <div className='font-normal text-xs w-[200px] h-[34px] text-center text-[#B5B5B5] leading-5'>
+                        <p>Drag and drop your image here Or <label className='text-blue-500' htmlFor="hidden-file-input">Upload Image</label></p>
+                        <input
+                            type="file"
+                            id="hidden-file-input"
+                            onChange={handleFileSelect}
+                            style={{ display: 'none' }}
+                        />
+                    </div>
+                ) : null}
+            </div>
+        </div>
+    );
+}
+
+const FirstPart = () => {
+
+
+    const [file, setFile] = useState('');
+
+    // function is called when a file is dropped
+    const handleDrop = (e) => {
+        e.preventDefault();
+        const file = e.dataTransfer.files[0];
+        setFile(file);
+    };
+
+    // function is called when the user is dragging a file over the drop zone
+    const handleDragOver = (e) => {
+        e.preventDefault();
+    };
+
+    // unction is called when the user selects a file using the file input element
+    const handleFileSelect = (e) => {
+        const file = e.target.files[0];
+        setFile(file);
+    };
+
+
 
     return (
         <div className='py-4 px-44'>
@@ -99,7 +218,6 @@ const FirstPart = () => {
                                         <path d="M3.625 1.125H3.5C3.56875 1.125 3.625 1.06875 3.625 1V1.125H8.375V1C8.375 1.06875 8.43125 1.125 8.5 1.125H8.375V2.25H9.5V1C9.5 0.448438 9.05156 0 8.5 0H3.5C2.94844 0 2.5 0.448438 2.5 1V2.25H3.625V1.125ZM11.5 2.25H0.5C0.223437 2.25 0 2.47344 0 2.75V3.25C0 3.31875 0.05625 3.375 0.125 3.375H1.06875L1.45469 11.5469C1.47969 12.0797 1.92031 12.5 2.45312 12.5H9.54688C10.0813 12.5 10.5203 12.0812 10.5453 11.5469L10.9312 3.375H11.875C11.9438 3.375 12 3.31875 12 3.25V2.75C12 2.47344 11.7766 2.25 11.5 2.25ZM9.42656 11.375H2.57344L2.19531 3.375H9.80469L9.42656 11.375Z" fill="#ED4C5C" />
                                     </svg>
                                 </div>
-
                                 <div className='px-2 py-2 w-[309px] rounded border border-[#DCDCDC] bg-white'>
                                     SafetyWorking at height
                                 </div>
@@ -159,82 +277,14 @@ const FirstPart = () => {
                 <div className='bg-white flex flex-col gap-6 py-3 rounded text-sm w-[529px] h-[311px]'>
                     <div className='flex flex-col gap-5 justify-center px-12'>
                         <p className=''>image</p>
-                        <div className='flex justify-center w-[294px] h-[202px] border-2 border-dashed border-[#DCDCDC]'
-                            onDrop={handleDrop}
-                            onDragOver={handleDragOver}
-                        >
-                            <div className='m-auto'>
-                                <label className='flex justify-center' htmlFor="hidden-file-input">
-                                    {!selectedFile ? (
-                                        <svg width="50" height="36" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M40.5882 14.7059C40.8824 13.8235 41.1765 12.9412 41.1765 11.7647C41.1765 5.29412 35.8824 0 29.4118 0C25 0 20.8824 2.64706 19.1176 6.47059C18.2353 6.17647 17.0588 5.88235 16.1765 5.88235C12.0588 5.88235 8.82353 9.11765 8.82353 13.2353C8.82353 13.8235 8.82353 14.4118 9.11765 14.7059C3.82353 15.5882 0 19.7059 0 25C0 30.5882 4.70588 35.2941 10.2941 35.2941H20.5882V26.4706H11.7647L25 13.2353L38.2353 26.4706H29.4118V35.2941H39.7059C45.2941 35.2941 50 30.5882 50 25C50 19.7059 45.8824 15.2941 40.5882 14.7059Z" fill="url(#paint0_linear_401_508)" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_401_508" x1="25" y1="0" x2="41.1765" y2="45.5882" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#E7E7E7" />
-                                                    <stop offset="1" stop-color="#848484" stop-opacity="0" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    ) : (
-                                        <p>
-                                            Selected file : {selectedFile.name}({selectedFile.type})
-                                        </p>
-                                    )}
-                                </label>
-                                {!selectedFile ? (
-                                    <div className='font-normal text-sm w-[200px] h-[34px] text-center text-[#B5B5B5] leading-5'>
-                                        <p>Drag and drop your image here Or <label className='text-blue-500' htmlFor="hidden-file-input">Upload Image</label></p>
-                                        <input
-                                            type="file"
-                                            id="hidden-file-input"
-                                            onChange={handleFileSelect}
-                                            style={{ display: 'none' }}
-                                        />
-                                    </div>
-                                ) : null}
-                            </div>
-                        </div>
+                        <Upload_L_Img />
                     </div>
                     <p className='text-sx text-[#B4B4B4]'>*Only JPG, PNG files are allowed. Image must be less than 2 MB</p>
                 </div>
                 <div className='bg-white flex flex-col gap-1.5 py-2 px-4 rounded text-sm w-[229px]'>
                     <div className='flex flex-col gap-2 justify-center'>
                         <p className=''>image</p>
-                        <div className='flex justify-center w-[200px] h-[97px] border-2 border-dashed border-[#DCDCDC]'
-                            onDrop={handleDrop}
-                            onDragOver={handleDragOver}
-                        >
-                            <div className='m-auto'>
-                                <label className='flex justify-center' htmlFor="hidden-file-input">
-                                    {!selectedFile ? (
-                                        <svg width="50" height="36" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M40.5882 14.7059C40.8824 13.8235 41.1765 12.9412 41.1765 11.7647C41.1765 5.29412 35.8824 0 29.4118 0C25 0 20.8824 2.64706 19.1176 6.47059C18.2353 6.17647 17.0588 5.88235 16.1765 5.88235C12.0588 5.88235 8.82353 9.11765 8.82353 13.2353C8.82353 13.8235 8.82353 14.4118 9.11765 14.7059C3.82353 15.5882 0 19.7059 0 25C0 30.5882 4.70588 35.2941 10.2941 35.2941H20.5882V26.4706H11.7647L25 13.2353L38.2353 26.4706H29.4118V35.2941H39.7059C45.2941 35.2941 50 30.5882 50 25C50 19.7059 45.8824 15.2941 40.5882 14.7059Z" fill="url(#paint0_linear_401_508)" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_401_508" x1="25" y1="0" x2="41.1765" y2="45.5882" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#E7E7E7" />
-                                                    <stop offset="1" stop-color="#848484" stop-opacity="0" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    ) : (
-                                        <p>
-                                            Selected file : {selectedFile.name}({selectedFile.type})
-                                        </p>
-                                    )}
-                                </label>
-                                {!selectedFile ? (
-                                    <div className='font-normal text-xs w-[200px] h-[34px] text-center text-[#B5B5B5] leading-5'>
-                                        <p>Drag and drop your image here Or <label className='text-blue-500' htmlFor="hidden-file-input">Upload Image</label></p>
-                                        <input
-                                            type="file"
-                                            id="hidden-file-input"
-                                            onChange={handleFileSelect}
-                                            style={{ display: 'none' }}
-                                        />
-                                    </div>
-                                ) : null}
-                            </div>
-                        </div>
+                        <Upload_S_Img />
                     </div>
                     <div>
                         <div className='flex flex-col gap-1.5'>
@@ -253,8 +303,8 @@ const FirstPart = () => {
                             <div className='flex justify-between bg-[#47CA5B] px-2 py-1 rounded items-center text-white font-semibold'>
                                 <div>
                                     <p className='text-xs'>Completed</p>
-                                    {selectedFile ? (
-                                        <p>{selectedFile.name}</p>
+                                    {file ? (
+                                        <p>{file.name}</p>
                                     ): (
                                         <p>workingAtHeight.pdf</p>
                                     )}

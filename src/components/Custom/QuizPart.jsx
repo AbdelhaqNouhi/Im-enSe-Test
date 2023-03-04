@@ -5,34 +5,32 @@ const QuizPart = () => {
     const [selectedFile, setSelectedFile] = useState('');
     const [isChecked_1, setIsChecked_1] = useState(false);
     const [isChecked_2, setIsChecked_2] = useState(false);
-    const [newQuestion, setNewQuestion] = useState('');
-    const [question, setQuestion] = useState([]);
+
+    const [question, setQuestion] = useState('');
+    const [newQuestion, setNewQuestion] = useState([]);
+
+    // console.log(newQuestion);
 
     // function is called when a file is dropped
     const handleDrop = (e) => {
         e.preventDefault();
         const file = e.dataTransfer.files[0];
         setSelectedFile(file);
-        console.log(selectedFile.name);
     };
 
     // function is called when the user is dragging a file over the drop zone
     const handleDragOver = (e) => {
         e.preventDefault();
-        console.log(selectedFile.name);
     };
 
     // unction is called when the user selects a file using the file input element
     const handleFileSelect = (e) => {
         const file = e.target.files[0];
         setSelectedFile(file);
-        console.log(selectedFile.name);
     };
 
     useEffect(() => {
-        if (selectedFile) {
-            console.log(selectedFile);
-        }
+
     }, [selectedFile])
 
 
@@ -53,13 +51,9 @@ const QuizPart = () => {
     };
 
     const handleAddQuestion = () => {
-        const addQuestion = {
-            id : Math.floor(Math.random() * 1000),
-            value : newQuestion,
-        };
-        setQuestion([...question, addQuestion]);
-        setNewQuestion('');
-        console.log(question);
+        setNewQuestion([...newQuestion, <div className='bg-[#F8F8F8] rounded p-6 flex gap-10'/>
+    ])
+    console.log(newQuestion);
     }
 
     return (
@@ -70,7 +64,10 @@ const QuizPart = () => {
                     <p className='text-[#B4B4B4] text-xs font-normal'>Here you can manage the questions by clicking on the “Add Question” button and choose from the available types of question. You can add up to 100 questions.</p>
                     <hr />
                 </div>
-                <div className='bg-[#F8F8F8] rounded p-6 flex gap-10'>
+                {newQuestion.map((question) => (
+                    <div className=''>{question}</div>
+                ))}
+                <div value={newQuestion} onChange={setNewQuestion} className='bg-[#F8F8F8] rounded p-6 flex gap-10'>
                     <div className='w-[730px] flex flex-col gap-4'>
                         <div className='flex justify-between w-full items-center'>
                             <p className='font-semibold'>Question 1</p>
@@ -193,8 +190,9 @@ const QuizPart = () => {
                 </div>
                 <div className='bg-[#E1EFFF] text-[#2C8EFF] font-bold text-center py-2 rounded'>
                     <button 
-                        value={question}
-                        onClick={handleAddQuestion}>
+                        // value={question}
+                        onClick={handleAddQuestion}
+                        >
                         Add Question +
                     </button>
                 </div>

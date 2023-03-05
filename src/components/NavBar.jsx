@@ -9,36 +9,6 @@ function NavBar() {
 
     const [openLang, setOpenLang] = useState(false);
     const [openProfile, setOpenProfile] = useState(false);
-
-    const [navbar, setNavbar] = useState(false);
-    const [openAuthModal, setOpenAuthModal] = useState(false);
-    const [isLogged, setIsLogged] = useState(false);
-    const lastName = localStorage.getItem("firstName");
-
-    const sign_out = () => {
-        setIsLogged(false);
-    };
-
-    const Auth_modal = () => {
-        setOpenAuthModal(true);
-    };
-    const active = () => {
-        setNavbar(!navbar);
-    };
-
-    useEffect(() => {
-        if (localStorage.getItem("token")) {
-            setIsLogged(true);
-        }
-    }, []);
-
-    const logOut = () => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("firstName");
-        localStorage.removeItem("lastName");
-        localStorage.removeItem("id");
-        setIsLogged(false);
-    };
     
     return (
         <nav className="bg-white text-black top-0 px-12 py-4 shadow-md w-full">

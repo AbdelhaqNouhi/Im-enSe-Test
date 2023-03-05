@@ -78,7 +78,7 @@ function ToggleCheck({ onChange, checked }) {
     );
 }
 
-function DropDown() {
+function DropDown({text}) {
 
     const [open, setOpen] = useState(false);
 
@@ -113,10 +113,8 @@ function DropDown() {
             </button>
             {open && (
                 <div className='bg-white border w-[145px] h-[78px] rounded p-1'>
-                    <p className='text-xs break-words'>When the countdown is
-                        finished, the system will
-                        automatically move to the
-                        next question.
+                    <p className='text-xs break-words'>
+                        {text}
                     </p>
                 </div>
             )}
@@ -142,7 +140,7 @@ const LastPart = () => {
             <div className='flex gap-4 rounded text-sm w-full'>
                 <div className='bg-white flex flex-col gap-6 rounded p-2 w-[186px] h-[166px]'>
                     <div className='ml-[9.4rem]'>
-                        <DropDown />
+                        <DropDown text={'When the countdown is finished, the system will automatically move to the next question.'}/>
                     </div>
                     <div className='flex flex-col gap-2 items-center justify-center'>
                         <svg width="30" height="36" viewBox="0 0 30 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -153,19 +151,9 @@ const LastPart = () => {
                     </div>
                     <Counter/>
                 </div>
-                <div className='bg-white flex flex-col gap-4 rounded p-2 w-[186px] h-[166px]    '>
-                    <div className='ml-auto'>
-                        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_401_266)">
-                                <path d="M7.86764 0.791162C3.83079 0.791162 0.546777 4.07517 0.546777 8.11203C0.546777 12.1489 3.83079 15.4329 7.86764 15.4329C11.9045 15.4329 15.1885 12.1489 15.1885 8.11203C15.1885 4.07517 11.9045 0.791162 7.86764 0.791162ZM7.86764 13.6987C4.78742 13.6987 2.28095 11.1923 2.28095 8.11203C2.28095 5.0318 4.78742 2.52534 7.86764 2.52534C10.9479 2.52534 13.4543 5.0318 13.4543 8.11203C13.4543 11.1923 10.9479 13.6987 7.86764 13.6987Z" fill="#D6D6D6" stroke="#D6D6D6" stroke-width="0.3" />
-                                <path d="M7.15063 7.2952H7.05063V7.3952V11.6977V11.7977H7.15063H8.58481H8.68481V11.6977V7.3952V7.2952H8.58481H7.15063ZM7.15063 4.42686H7.05063V4.52686V5.96103V6.06103H7.15063H8.58481H8.68481V5.96103V4.52686V4.42686H8.58481H7.15063Z" fill="#D6D6D6" stroke="#D6D6D6" stroke-width="0.2" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_401_266">
-                                    <rect width="16" height="16" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
+                <div className='bg-white flex flex-col gap-6 rounded p-2 w-[186px] h-[166px]    '>
+                    <div className='ml-[9.4rem]'>
+                        <DropDown text={'When the countdown is finished, the system will automatically move to the next question.'}/>
                     </div>
                     <div className='flex flex-col gap-2 items-center justify-center'>
                         <svg width="30" height="36" viewBox="0 0 30 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -175,19 +163,9 @@ const LastPart = () => {
                     </div>
                     <Counter text={'s'}/>
                 </div>
-                <div className='bg-white flex flex-col gap-4 rounded p-2 w-[186px] h-[166px]'>
-                    <div className='ml-auto'>
-                        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_401_266)">
-                                <path d="M7.86764 0.791162C3.83079 0.791162 0.546777 4.07517 0.546777 8.11203C0.546777 12.1489 3.83079 15.4329 7.86764 15.4329C11.9045 15.4329 15.1885 12.1489 15.1885 8.11203C15.1885 4.07517 11.9045 0.791162 7.86764 0.791162ZM7.86764 13.6987C4.78742 13.6987 2.28095 11.1923 2.28095 8.11203C2.28095 5.0318 4.78742 2.52534 7.86764 2.52534C10.9479 2.52534 13.4543 5.0318 13.4543 8.11203C13.4543 11.1923 10.9479 13.6987 7.86764 13.6987Z" fill="#D6D6D6" stroke="#D6D6D6" stroke-width="0.3" />
-                                <path d="M7.15063 7.2952H7.05063V7.3952V11.6977V11.7977H7.15063H8.58481H8.68481V11.6977V7.3952V7.2952H8.58481H7.15063ZM7.15063 4.42686H7.05063V4.52686V5.96103V6.06103H7.15063H8.58481H8.68481V5.96103V4.52686V4.42686H8.58481H7.15063Z" fill="#D6D6D6" stroke="#D6D6D6" stroke-width="0.2" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_401_266">
-                                    <rect width="16" height="16" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
+                <div className='bg-white flex flex-col gap-6 rounded p-2 w-[186px] h-[166px]'>
+                    <div className='ml-[9.4rem]'>
+                        <DropDown text={'When the countdown is finished, the system will automatically move to the next question.'} />
                     </div>
                     <div className='flex flex-col gap-2 items-center justify-center'>
                         <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -197,19 +175,9 @@ const LastPart = () => {
                     </div>
                     <Counter text={'%'} />
                 </div>
-                <div className=' bg-white flex flex-col gap-5 rounded p-2 w-[186px] h-[166px]'>
-                    <div className='ml-auto'>
-                        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_401_266)">
-                                <path d="M7.86764 0.791162C3.83079 0.791162 0.546777 4.07517 0.546777 8.11203C0.546777 12.1489 3.83079 15.4329 7.86764 15.4329C11.9045 15.4329 15.1885 12.1489 15.1885 8.11203C15.1885 4.07517 11.9045 0.791162 7.86764 0.791162ZM7.86764 13.6987C4.78742 13.6987 2.28095 11.1923 2.28095 8.11203C2.28095 5.0318 4.78742 2.52534 7.86764 2.52534C10.9479 2.52534 13.4543 5.0318 13.4543 8.11203C13.4543 11.1923 10.9479 13.6987 7.86764 13.6987Z" fill="#D6D6D6" stroke="#D6D6D6" stroke-width="0.3" />
-                                <path d="M7.15063 7.2952H7.05063V7.3952V11.6977V11.7977H7.15063H8.58481H8.68481V11.6977V7.3952V7.2952H8.58481H7.15063ZM7.15063 4.42686H7.05063V4.52686V5.96103V6.06103H7.15063H8.58481H8.68481V5.96103V4.52686V4.42686H8.58481H7.15063Z" fill="#D6D6D6" stroke="#D6D6D6" stroke-width="0.2" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_401_266">
-                                    <rect width="16" height="16" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
+                <div className=' bg-white flex flex-col gap-7 rounded p-2 w-[186px] h-[166px]'>
+                    <div className='ml-[9.4rem]'>
+                        <DropDown text={'When the countdown is finished, the system will automatically move to the next question.'} />
                     </div>
                     <div className='flex flex-col gap-2 items-center justify-center'>
                         <svg width="28" height="35" viewBox="0 0 28 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -228,19 +196,9 @@ const LastPart = () => {
                     {/* <Counter text={'%'} /> */}
                     <ToggleCheck onChange={handleCheckboxChange} checked={isChecked} />
                 </div>
-                <div className='bg-white flex flex-col gap-4 rounded p-2 w-[186px] h-[166px]'>
-                    <div className='ml-auto'>
-                        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_401_266)">
-                                <path d="M7.86764 0.791162C3.83079 0.791162 0.546777 4.07517 0.546777 8.11203C0.546777 12.1489 3.83079 15.4329 7.86764 15.4329C11.9045 15.4329 15.1885 12.1489 15.1885 8.11203C15.1885 4.07517 11.9045 0.791162 7.86764 0.791162ZM7.86764 13.6987C4.78742 13.6987 2.28095 11.1923 2.28095 8.11203C2.28095 5.0318 4.78742 2.52534 7.86764 2.52534C10.9479 2.52534 13.4543 5.0318 13.4543 8.11203C13.4543 11.1923 10.9479 13.6987 7.86764 13.6987Z" fill="#D6D6D6" stroke="#D6D6D6" stroke-width="0.3" />
-                                <path d="M7.15063 7.2952H7.05063V7.3952V11.6977V11.7977H7.15063H8.58481H8.68481V11.6977V7.3952V7.2952H8.58481H7.15063ZM7.15063 4.42686H7.05063V4.52686V5.96103V6.06103H7.15063H8.58481H8.68481V5.96103V4.52686V4.42686H8.58481H7.15063Z" fill="#D6D6D6" stroke="#D6D6D6" stroke-width="0.2" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_401_266">
-                                    <rect width="16" height="16" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
+                <div className='bg-white flex flex-col gap-6 rounded p-2 w-[186px] h-[166px]'>
+                    <div className='ml-[9.4rem]'>
+                        <DropDown text={'When the countdown is finished, the system will automatically move to the next question.'}/>
                     </div>
                     <div className='flex flex-col gap-2 items-center justify-center'>
                         <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -250,19 +208,9 @@ const LastPart = () => {
                     </div>
                     <Counter text={'m'} />
                 </div>
-                <div className='bg-white flex flex-col gap-4 rounded p-2 w-[186px] h-[166px]'>
-                    <div className='ml-auto'>
-                        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_401_266)">
-                                <path d="M7.86764 0.791162C3.83079 0.791162 0.546777 4.07517 0.546777 8.11203C0.546777 12.1489 3.83079 15.4329 7.86764 15.4329C11.9045 15.4329 15.1885 12.1489 15.1885 8.11203C15.1885 4.07517 11.9045 0.791162 7.86764 0.791162ZM7.86764 13.6987C4.78742 13.6987 2.28095 11.1923 2.28095 8.11203C2.28095 5.0318 4.78742 2.52534 7.86764 2.52534C10.9479 2.52534 13.4543 5.0318 13.4543 8.11203C13.4543 11.1923 10.9479 13.6987 7.86764 13.6987Z" fill="#D6D6D6" stroke="#D6D6D6" stroke-width="0.3" />
-                                <path d="M7.15063 7.2952H7.05063V7.3952V11.6977V11.7977H7.15063H8.58481H8.68481V11.6977V7.3952V7.2952H8.58481H7.15063ZM7.15063 4.42686H7.05063V4.52686V5.96103V6.06103H7.15063H8.58481H8.68481V5.96103V4.52686V4.42686H8.58481H7.15063Z" fill="#D6D6D6" stroke="#D6D6D6" stroke-width="0.2" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_401_266">
-                                    <rect width="16" height="16" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
+                <div className='bg-white flex flex-col gap-6 rounded p-2 w-[186px] h-[166px]'>
+                    <div className='ml-[9.4rem]'>
+                        <DropDown text={'When the countdown is finished, the system will automatically move to the next question.'} />
                     </div>
                     <div className='flex flex-col gap-2 items-center justify-center'>
                         <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">

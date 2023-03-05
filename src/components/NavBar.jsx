@@ -7,7 +7,8 @@ import lang  from '../assets/data/lang.json';
 
 function NavBar() {
 
-    const [open, setOpen] = useState(false);
+    const [openLang, setOpenLang] = useState(false);
+    const [openProfile, setOpenProfile] = useState(false);
 
     const [navbar, setNavbar] = useState(false);
     const [openAuthModal, setOpenAuthModal] = useState(false);
@@ -83,11 +84,11 @@ function NavBar() {
                     </div>
                     <div className='flex items-center absolute'>
                         <button
-                            onClick={() => setOpen((event) => !event)}
+                            onClick={() => setOpenLang((event) => !event)}
                             className=''>
                             <img className='w-6 h-6 rounded-full' src={english} alt="" />
                         </button>
-                        {open && (
+                        {openLang && (
                             <div className=' mt-56 ml-[-8rem] rounded bg-white w-[133px] border'>
                                 {lang.map((langs, index) => (
                                     <div className=' text-sm py-2 px-2 cursor-pointer rounded hover:border-l-black border-l-4'>
@@ -100,10 +101,17 @@ function NavBar() {
                     </div>
 
                     <div className='flex gap-2 items-center'>
-                        <img className='w-8 h-8 rounded-full' src={Profile} alt="" />
-                        <div className=' items-center text-xs text-[#6B6B6B]'>
-                            <p className='font-bold'>Abdelhaq Nouhi</p>
-                            <p>Admin</p>
+                        <div className='flex gap-2 items-center'>
+                            <button
+                                onClick={() => setOpenProfile((event) => !event)}
+                            >
+                                <img className='w-8 h-8 rounded-full' src={Profile} alt="" />
+                            </button>
+                            <div className=' items-center text-xs text-[#6B6B6B]'>
+                                <p className='font-bold'>Abdelhaq Nouhi</p>
+                                <p>Admin</p>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

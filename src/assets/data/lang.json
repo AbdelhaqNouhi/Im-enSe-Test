@@ -1,0 +1,22 @@
+[
+    {
+        "img": "..//images//Profile.png",
+        "name": "English (EN)"
+    },
+    {
+        "img": "../icons/dropDown/france.svg",
+        "name": "Français (FR)"
+    },
+    {
+        "img": "../icons/dropDown/germany.svg",
+        "name": "Deutsch (DE)"
+    },
+    {
+        "img": "../icons/dropDown/nederlands.svg",
+        "name": "Nederlands (NL)"
+    },
+    {
+        "img": "../icons/dropDown/spain.svg",
+        "name": "Español (ES)"
+    }
+]

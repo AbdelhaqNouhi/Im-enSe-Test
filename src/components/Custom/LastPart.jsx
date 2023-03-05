@@ -92,7 +92,7 @@ const LastPart = () => {
     };
 
     return (
-        <div className='px-44 py-8 items-center justify-center w-full'>
+        <div className='px-44 py-8 w-full'>
             <div className='flex gap-4 rounded text-sm w-full'>
                 <div className='bg-white flex flex-col gap-4 rounded p-2 w-[186px] h-[166px]'>
                     <div className='ml-auto'>
@@ -117,7 +117,7 @@ const LastPart = () => {
                     </div>
                     <Counter/>
                 </div>
-                <div className='bg-white flex flex-col gap-4 rounded p-2 w-[186px] h-[166px]'>
+                <div className='bg-white flex flex-col gap-4 rounded p-2 w-[186px] h-[166px]    '>
                     <div className='ml-auto'>
                         <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_401_266)">
@@ -239,8 +239,7 @@ const LastPart = () => {
                     <Counter text={''} />
                 </div>
             </div>
-            <div>
-                <h1>scrole</h1>
+            <div className='py-8'>
             </div>
         </div>
     )

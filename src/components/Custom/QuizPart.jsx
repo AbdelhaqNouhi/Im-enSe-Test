@@ -147,7 +147,7 @@ function AddQuestion() {
     };
 
     return (
-        <div className='bg-[#F8F8F8] rounded p-6 flex gap-10'>
+        <div className='bg-[#F8F8F8] rounded p-6 flex gap-10 w-full'>
             <div className='w-[730px] flex flex-col gap-4'>
                 <div className='flex justify-between w-full items-center'>
                     <p className='font-semibold'>Question 1</p>

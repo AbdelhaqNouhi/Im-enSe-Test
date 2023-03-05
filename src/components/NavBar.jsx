@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from "react-router-dom"; 
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo.svg";
 import Profile from '../assets/images/Profile.png';
+import english from '../assets/icons//dropDown/english.svg';
+import lang  from '../assets/data/lang.json';
 
 function NavBar() {
+
+    const [open, setOpen] = useState(false);
 
     const [navbar, setNavbar] = useState(false);
     const [openAuthModal, setOpenAuthModal] = useState(false);
@@ -36,11 +40,11 @@ function NavBar() {
     };
     
     return (
-        <nav className="bg-white text-black top-0 px-12 py-4 shadow-md">
-            <div className="flex items-center justify-around">
+        <nav className="bg-white text-black top-0 px-12 py-4 shadow-md w-full">
+            <div className="flex items-center justify-around w-full">
                 <div className='flex items-center gap-10'>
                     <NavLink to="/" className="flex items-center">
-                        <img src={logo} alt="..." />
+                        <img src={logo} alt="" />
                     </NavLink>
                     <div className='Search&Mune flex gap-10'>
                         <div className='Shearch'>
@@ -56,7 +60,7 @@ function NavBar() {
                     </div>
                     <div className='Mune flex gap-10 text-[#B6B6B6]'>
                         <NavLink 
-                            to="/Dashboard" 
+                            to="/" 
                             className={({ isActive }) => (isActive ? 'text-blue-500 flex items-center' : 'flex items-center')}>
                             Dashboard
                         </NavLink>
@@ -77,9 +81,24 @@ function NavBar() {
                             <path d="M13.075 12.6562V12.677L13.0896 12.6916L14.95 14.552V15.4187H0.05V14.552L1.91036 12.6916L1.925 12.677V12.6562V7.96875C1.925 5.09878 3.45165 2.72334 6.10532 2.09239L6.14375 2.08326V2.04375V1.40625C6.14375 0.655739 6.74949 0.05 7.5 0.05C8.25051 0.05 8.85625 0.655739 8.85625 1.40625V2.04375V2.08329L8.89472 2.0924C11.5576 2.72333 13.075 5.10801 13.075 7.96875V12.6562ZM11.25 13.6438H11.3V13.5938V7.96875C11.3 6.79644 10.9431 5.72974 10.2886 4.95523C9.63337 4.17991 8.68189 3.7 7.5 3.7C6.31811 3.7 5.36663 4.17991 4.71142 4.95523C4.05689 5.72974 3.7 6.79644 3.7 7.96875V13.5938V13.6438H3.75H11.25ZM9.32432 16.4562C9.29759 17.437 8.48692 18.2313 7.5 18.2313C6.51308 18.2313 5.70241 17.437 5.67568 16.4562H9.32432Z" fill="#A4A4A4" stroke="white" stroke-width="0.1" />
                         </svg>
                     </div>
-                    <div className=''>
-                        <img className='w-6 h-6 rounded-full' src={Profile} alt="" />
+                    <div className='flex items-center absolute'>
+                        <button
+                            onClick={() => setOpen((event) => !event)}
+                            className=''>
+                            <img className='w-6 h-6 rounded-full' src={english} alt="" />
+                        </button>
+                        {open && (
+                            <div className=' mt-56 ml-[-8rem] rounded bg-white w-[133px] border'>
+                                {lang.map((langs, index) => (
+                                    <div className=' text-sm py-2 px-2 cursor-pointer rounded hover:border-l-black border-l-4'>
+                                        {/* <p>{langs.img}</p> */}
+                                        <p>{langs.name}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
+
                     <div className='flex gap-2 items-center'>
                         <img className='w-8 h-8 rounded-full' src={Profile} alt="" />
                         <div className=' items-center text-xs text-[#6B6B6B]'>

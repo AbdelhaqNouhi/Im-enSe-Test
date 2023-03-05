@@ -93,11 +93,11 @@ function DropDown() {
     }
 
     return (
-        <div className='absolute'>
+        <div className='absolute '>
             <button
                 className=''
-                // onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
-                onClick={() => setOpen((event) => !event)}
+                onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
+                // onClick={() => setOpen((event) => !event)}
             >
                 <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_401_266)">
@@ -141,7 +141,7 @@ const LastPart = () => {
         <div className='px-44 py-8 w-full'>
             <div className='flex gap-4 rounded text-sm w-full'>
                 <div className='bg-white flex flex-col gap-6 rounded p-2 w-[186px] h-[166px]'>
-                    <div className=''>
+                    <div className='ml-[9.4rem]'>
                         <DropDown />
                     </div>
                     <div className='flex flex-col gap-2 items-center justify-center'>

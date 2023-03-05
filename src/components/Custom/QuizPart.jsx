@@ -5,7 +5,7 @@ function ToggleCheck({onChange, checked}) {
     return (
         <div className=''>
             <input
-                class="w-4 h-4 bg-blue-500 rounded focus:ring-blue-500"
+                class="w-4 h-4"
                 type="checkbox"
                 checked={checked}
                 onChange={onChange}

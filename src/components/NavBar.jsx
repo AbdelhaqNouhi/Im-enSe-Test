@@ -41,11 +41,13 @@ function DropDownLang() {
 
     return (
         <div className='flex items-center absolute'>
-            <button
-                onClick={() => setOpenLang((event) => !event)}
-                className=''>
-                <img className='w-6 h-6 rounded-full' src={english} alt="" />
-            </button>
+            <div>
+                <button
+                    onClick={() => setOpenLang((event) => !event)}
+                    className=''>
+                    <img className='w-6 h-6 rounded-full' src={english} alt="" />
+                </button>
+            </div>
             {openLang && (
                 <div className=' mt-56 ml-[-8rem] rounded bg-white w-[133px] border'>
                     {lang.map((langs, index) => (
@@ -66,10 +68,12 @@ function DropDownProfile() {
 
     return (
         <div className='flex items-center absolute'>
-            <button
-                onClick={() => setOpenProfile((event) => !event)}                >
-                <img className='w-8 h-8 rounded-full' src={Profile} alt="" />
-            </button>
+            <div>
+                <button
+                    onClick={() => setOpenProfile((event) => !event)}                >
+                    <img className='w-8 h-8 rounded-full' src={Profile} alt="" />
+                </button>
+            </div>
             {openProfile && (
                 <div className=' mt-64 ml-[-10rem] rounded bg-white w-[165px] h-[210px] border'>
                     <div className='text-sm py-4 px-2 cursor-pointer rounded hover:border-l-black border-l-2 flex flex-col gap-4'>

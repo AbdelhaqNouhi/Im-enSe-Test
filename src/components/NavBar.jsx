@@ -76,7 +76,7 @@ function DropDownProfile() {
             </div>
             {openProfile && (
                 <div className=' mt-64 ml-[-10rem] rounded bg-white w-[165px] h-[210px] border'>
-                    <div className='text-sm py-4 px-2 cursor-pointer rounded hover:border-l-black border-l-2 flex flex-col gap-4'>
+                    <div className='text-sm py-4 px-2 cursor-pointer rounded flex flex-col gap-4'>
                         <div className='flex flex-col gap-2'>
                             <p className='font-bold text-sm'>Abdelhaq Nouhi</p>
                             <p className='text-xs'>abdelhaqnouhi@gmail.com</p>
